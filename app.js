@@ -376,17 +376,21 @@ const controller = (function(backEndController,frontEndController) {
         const transferAttempt = frontEndController.getTransferInputs();
 
         if(transferAttempt.balance){
-            const confirmTransfer = confirm(`Are you sure you want to transfer ${formatNumber(transferAttempt.balance)} pesos to ${transferAttempt.username}?`);
-            if(confirmTransfer){
-                backEndController.send(data.currentUser,backEndController.find_user(transferAttempt.username),transferAttempt.balance);
-                backEndController.updateUserBalance();
-                frontEndController.personalizePage();
-                frontEndController.changePage(event);
+            if(transferAttempt.balance <= data.currentUser.balance){
+                const confirmTransfer = confirm(`Are you sure you want to transfer ${formatNumber(transferAttempt.balance)} pesos to ${transferAttempt.username}?`);
+                if(confirmTransfer){
+                    backEndController.send(data.currentUser,backEndController.find_user(transferAttempt.username),transferAttempt.balance);
+                    backEndController.updateUserBalance();
+                    frontEndController.personalizePage();
+                    frontEndController.changePage(event);
+                }
+            } else {
+                alert("Not enough cash. Please try again.")
             }
-            frontEndController.clearFields();
         } else{
             alert("No amount inputted please try again.")
         }
+        frontEndController.clearFields();
     }
 
     const handleNavigation = function(event) {

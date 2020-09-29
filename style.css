@@ -356,6 +356,12 @@ nav div a:hover {
 .to_user_choice {
     width: 80%;
     height: 40px;
+    font-size: 20px;
+    padding-left: 10px;
+}
+
+.to_user_choice:hover {
+    cursor: pointer;
 }
 
 .send-money-page select,button,input {
