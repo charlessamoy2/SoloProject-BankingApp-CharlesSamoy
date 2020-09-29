@@ -244,33 +244,9 @@ const frontEndController = {
                 selectBox.appendChild(newOption);
             };
         });
-    }
-}
+    },
 
-const controller = (function(backEndController,frontEndController) {
-    
-    const setUpEventListeners = function () {
-        document.querySelector(DOMStrings.loginPageBtn).addEventListener('click',changePage);
-        document.querySelector(DOMStrings.registerBtn).addEventListener('click',changePage);
-        document.querySelector(DOMStrings.logOutBtn).addEventListener('click',changePage);
-        document.querySelectorAll(DOMStrings.goHomeBtn).forEach(function(current){
-            current.addEventListener('click',changePage);
-        });
-
-        document.querySelector(DOMStrings.loginBtn).addEventListener('click',loginHandler);
-        document.querySelector(DOMStrings.regBtn).addEventListener('click',regHandler);
-
-        document.querySelector(DOMStrings.depWithPageBtn).addEventListener('click',changePage);
-        document.querySelector(DOMStrings.sendPageBtn).addEventListener('click',changePage);
-        document.querySelectorAll(DOMStrings.backBtn).forEach(function(current){
-            current.addEventListener('click',changePage);
-        });
-
-        document.querySelector(DOMStrings.submitDepWith).addEventListener('click',depWithHandler);
-        document.querySelector(DOMStrings.submitTransfer).addEventListener('click',transferHandler);
-    }
-
-    const changePage = function(event) {
+    changePage : function(event) {
         const landingPage = document.querySelector(DOMStrings.landingPage);
         const regPage = document.querySelector(DOMStrings.regPage);
         const loginPage = document.querySelector(DOMStrings.loginPage);
@@ -306,7 +282,6 @@ const controller = (function(backEndController,frontEndController) {
             } else {
                 console.log('what happened here');
             }
-
             landingBtns.style.visibility="hidden";
             loggedInBtns.style.visibility="visible";
         } else if (event.target.id === "logout-btn"){
@@ -314,22 +289,43 @@ const controller = (function(backEndController,frontEndController) {
             loggedInBtns.style.visibility="hidden";
             landingBtns.style.visibility="visible";
             landingPage.style.visibility="visible";
-            backEndController.resetCurrentUser();
         } else if (event.target.classList.value === "deposit-withdraw-btn"){
             depWithPage.style.visibility="visible";
         } else if (event.target.classList.value ==="send-money-btn"){
             sendMoneyPage.style.visibility="visible";
-            frontEndController.updateChoicesForTransfer();
         } else if (event.target.classList.value === "back-btn" || event.target.classList.value === "submit-depwith" || event.target.classList.value === "submit-transfer"){
             homePage.style.visibility="visible";
-            frontEndController.clearFields();
         }
+    }
+}
+
+const controller = (function(backEndController,frontEndController) {
+    
+    const setUpEventListeners = function () {
+        document.querySelector(DOMStrings.loginPageBtn).addEventListener('click',handleNavigation);
+        document.querySelector(DOMStrings.registerBtn).addEventListener('click',handleNavigation);
+        document.querySelector(DOMStrings.logOutBtn).addEventListener('click',handleNavigation);
+        document.querySelectorAll(DOMStrings.goHomeBtn).forEach(function(current){
+            current.addEventListener('click',handleNavigation);
+        });
+
+        document.querySelector(DOMStrings.loginBtn).addEventListener('click',loginHandler);
+        document.querySelector(DOMStrings.regBtn).addEventListener('click',regHandler);
+
+        document.querySelector(DOMStrings.depWithPageBtn).addEventListener('click',handleNavigation);
+        document.querySelector(DOMStrings.sendPageBtn).addEventListener('click',handleNavigation);
+        document.querySelectorAll(DOMStrings.backBtn).forEach(function(current){
+            current.addEventListener('click',handleNavigation);
+        });
+
+        document.querySelector(DOMStrings.submitDepWith).addEventListener('click',depWithHandler);
+        document.querySelector(DOMStrings.submitTransfer).addEventListener('click',transferHandler);
     }
 
     const loginHandler = function(event) {
         const loginAttempt = frontEndController.getLoginInputs();
         if (backEndController.check_user(loginAttempt.username,loginAttempt.password)){
-            changePage(event);
+            frontEndController.changePage(event);
         } else {
             alert("Wrong username or password! Please try again.");
         }
@@ -343,7 +339,7 @@ const controller = (function(backEndController,frontEndController) {
             if(regAttempt.confirmPassword === regAttempt.password) {
                 backEndController.create_user(regAttempt.username,regAttempt.password);
                 alert('User created! Please login now.');
-                changePage(event);
+                frontEndController.changePage(event);
             } else {
                 alert('Confirm password and password is not the same. Please try again.')
             }
@@ -370,7 +366,7 @@ const controller = (function(backEndController,frontEndController) {
             }
             backEndController.updateUserBalance();
             frontEndController.personalizePage();
-            changePage(event)
+            frontEndController.changePage(event)
         } else{
             alert("No amount inputted please try again.")
         }
@@ -385,12 +381,23 @@ const controller = (function(backEndController,frontEndController) {
                 backEndController.send(data.currentUser,backEndController.find_user(transferAttempt.username),transferAttempt.balance);
                 backEndController.updateUserBalance();
                 frontEndController.personalizePage();
-                changePage(event);
+                frontEndController.changePage(event);
             }
             frontEndController.clearFields();
         } else{
             alert("No amount inputted please try again.")
         }
+    }
+
+    const handleNavigation = function(event) {
+        if(event.target.id==="logout-btn"){
+            backEndController.resetCurrentUser();
+        } else if (event.target.classList.value==="send-money-btn"){
+            frontEndController.updateChoicesForTransfer();
+            
+        }
+        frontEndController.changePage(event);
+        frontEndController.clearFields();
     }
 
     return {
