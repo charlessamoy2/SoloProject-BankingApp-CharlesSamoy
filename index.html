@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Samoy Banking</title>
+    <link rel="stylesheet" href="style.css"/>
+    <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+</head>
+<body>
+    <header class="whole-header">
+        <h1>Charles Samoy Banking App</h1>
+    </header>
+    <main id="phone">
+        <nav class="nav-phone">
+            <img src="images/bank.png" alt="banking logo">
+            <div class="all-btns">
+                <div class="landing-btns">
+                    <a id="login-page-btn">Login</a>
+                    <a id="register-page-btn">Registration</a>
+                </div>
+                <div class="logged-in-btns">
+                    <a id="logout-btn">Logout</a>
+                </div>
+            </div>
+        </nav>
+        <section class="body-phone">
+            <div class="landing-page">
+                <h1>Welcome to my banking app!</h1>
+                <h2>Just a couple of things before you go</h2>
+                <ol>
+                    <li>Please do register an account before logging in!</li>
+                    <li>If you don't want to register you may use the following dummy accounts:
+                        <table style="width:100%;">
+                            <tr>
+                                <th>Username</th>
+                                <th>Password</th>
+                            </tr>
+                            <tr>
+                                <td>user</td>
+                                <td>password</td>
+                            </tr>
+                            <tr>
+                                <td>charles</td>
+                                <td>samoy</td>
+                            </tr>
+                            <tr>
+                                <td>test</td>
+                                <td>test</td>
+                            </tr>
+                        </table>
+                    </li>
+                    <li>To access the list of all users please use the admin account: 
+                        <table style="width:100%;">
+                            <tr>
+                                <th>Username</th>
+                                <th>Password</th>
+                            </tr>
+                            <tr>
+                                <td>admin</td>
+                                <td>admin</td>
+                            </tr>
+                        </table>
+                    </li>
+                    <li>That would be it! Have fun! Please login/register using the buttons in the nav bar.</li>
+                </ol>
+                <i class="far fa-smile-beam fa-5x"></i>
+            </div>
+            <div class="login-page">
+                <h1>Login Page</h1>
+                <div class="login-form">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username">
+                    <br><br>
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password">
+                </div>
+                <button class="login-btn">Login</button>
+                <button class="home-btn">Back</button>
+            </div>
+            <div class="reg-page">
+                <h1>Registration Page</h1>
+                <div class="reg-form">
+                    <label for="newUsername">Username</label>
+                    <input type="text" id="newUsername" name="newUsername">
+                    <br><br>
+                    <label for="newPassword">Password</label>
+                    <input type="password" id="newPassword" name="newPassword">
+                    <br><br>
+                    <label for="newPassword2">Confirm Password</label>
+                    <input type="password" id="newPassword2" name="newPassword2">
+                </div>
+                <button class="reg-btn">Submit</button>
+                <button class="home-btn">Back</button>
+            </div>
+            <div class="logged-in-page">
+                <div class="home-page">
+                    <img src="images/icons/icon1.png" class="user-icon">
+                    <h1 class="greeting-home">Welcome, Charles</h1>
+                    <h2 class="balance">You have <br><span class="balance-amount">1,000</span><br>pesos left.</h2>
+                    <h3>What would you like to do?</h3>
+                    <div class="action-btns">
+                        <button class="deposit-withdraw-btn">Deposit/Withdraw</button>
+                        <button class="send-money-btn">Send Money</button>
+                    </div>
+                </div>
+                <div class="deposit-withdraw-page">
+                    <h1>Deposit and Withdraw</h1>
+                    <h2 class="balance">You have <br><span class="balance-amount">1,000</span><br>pesos left.</h2>
+                    <div class="deposit-withdraw-btns">
+                        <label for="dep-or-with">Deposit or Withdraw?</label>
+                        <br>
+                        <select class="dep-or-with" name="dep-or-with">
+                            <option value="deposit" selected>Deposit</option>
+                            <option value="withdraw">Withdraw</option>
+                        </select>
+                        <br><br>
+                        <label for="amount-to-depwith">How much?</label>
+                        <input type="number" class="amount-to-depwith" name="amount-to-process">
+                        <button class="submit-depwith">Submit</button>
+                        <br>
+                        <button class="back-btn">Cancel</button>
+                    </div>
+                </div>
+                <div class="send-money-page">
+                    <h1>Transfer Money</h1>
+                    <h2 class="balance">You have <br><span class="balance-amount">1,000</span><br>pesos left.</h2>
+                    <div class="transfer-btns">
+                        <label for="to_user_choice">To Who?</label>
+                        <br>
+                        <select class="to_user_choice" name="to_user_choice">
+                        </select>
+                        <br><br>
+                        <label for="amount-to-transfer">How much?</label>
+                        <input type="number" class="amount-to-transfer" name="amount-to-process">
+                        <button class="submit-transfer">Submit</button>
+                        <br>
+                        <button class="back-btn">Cancel</button>
+                    </div>
+                </div>
+            </div>
+            <div class="admin-page">
+
+            </div>
+        </section>
+    </main>
+    <footer class="whole-footer">
+        <i class="far fa-copyright"></i> Charles Samoy 2020
+    </footer>
+    <script type="text/javascript" src="app.js"></script>
+</body>
+</html>

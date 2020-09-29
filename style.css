@@ -1,0 +1,364 @@
+@import url("https://use.typekit.net/jra6xgo.css");
+
+/* general styling */
+
+* {
+    font-family: "Kanit", sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    background-image: linear-gradient(aliceblue,lightblue);
+    background-repeat: no-repeat;
+    background-size:cover;
+    min-height:100%;
+    width:100%;
+}
+
+body{
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+}
+
+header{
+    text-align:center;
+    margin-bottom: 20px;
+}
+
+footer{
+    text-align: center;
+    opacity: 20%;
+    border-top: 1px solid grey;
+    line-height: 3;
+    width: 60vw;
+    margin: 30px auto;
+}
+
+.user-icon{
+    max-width: 200px;
+    height: 200px;
+}
+
+/* phone styling */
+#phone {
+    width: 480px;
+    margin: 0 auto;
+    background-color: white;
+    height: 86vh;
+    border: 1px solid grey;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+/* nav styling */
+nav {
+    height: 75px;
+    padding: 10px 25px;
+    position: relative;
+    display: flex;
+    background-color: rgba(182, 233, 253, 0.795);
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom: 1px solid grey;
+}
+
+nav a:not(:first-child) {
+    margin-left: 10px;
+}
+
+nav>img {
+    width: 50px;
+    height: auto;
+    object-fit: cover;
+}
+
+.all-btns {
+    position: absolute;
+    left: 40%;
+    width: 275px;
+    padding: 5px;
+    height: 50px;
+}
+
+nav div {
+    padding-top: 5px;
+}
+
+nav div a {
+    width: 100px;
+    height: 30px;
+    position: relative;
+    cursor: pointer;
+    color: black;
+    padding-bottom: 5px;
+    border-bottom: 1px solid rgb(20, 145, 218);
+}
+
+nav div a:hover {
+    color: rgba(0, 0, 0, 0.514);
+}
+
+.logged-in-btns, .landing-btns {
+    position: absolute;
+}
+
+.landing-btns {
+    left: 125px;
+}
+
+.logged-in-btns {
+    left: 217px;
+    visibility: hidden;
+}
+
+/* body styling */
+.body-phone {
+    width: 100%;
+    height: 75vh;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    overflow: hidden;
+}
+
+.body-phone>div {
+    position: absolute;
+    width: 478px;
+    height: 70vh;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    padding: 15px 50px;
+    overflow-y: auto;
+}
+
+
+/* landing page styling */
+.landing-page {
+    text-align: center;
+    visibility: visible;
+    position: relative;
+    z-index: 1;
+}
+
+.landing-page h2 {
+    font-size: 20px;
+    font-weight: 400;
+    margin-bottom: 10px;
+}
+
+.landing-page ol {
+    text-align: justify;
+    color: black;
+}
+
+.landing-page ol li table,th,td {
+    margin: 10px 0;
+    text-align: center;
+    border-collapse: collapse;
+    border: 1px solid grey;
+}
+
+.landing-page ol li th {
+    background-color: lightgray;
+}
+
+.landing-page ol li {
+    margin-bottom: 35px;
+}
+
+/* login page styling */
+
+.login-page {
+    text-align: center;
+    visibility: hidden;
+}
+
+.login-page h1 {
+    margin-top: 175px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.login-page label {
+    width: 90px;
+    display: block;
+    float: left;
+    font-weight: bold;
+}
+
+.login-page label:after {
+    content: ": "
+}
+
+.login-page input {
+    position: relative;
+    z-index: 1;
+    padding: 2px 10px;
+    width: 100%;
+    color: black;
+}
+
+.login-page button,.reg-page button {
+    width: 100px;
+    height: 25px;
+    margin: 25px 0;
+    position: relative;
+    z-index: 1;
+    cursor: pointer;
+}
+
+/* reg form */
+.reg-page {
+    text-align: center;
+    visibility: hidden;
+}
+
+.reg-page h1 {
+    margin-top: 125px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.reg-page label {
+    display: block;
+    float: left;
+    font-weight: bold;
+}
+
+.reg-page label:after {
+    content: ": "
+}
+
+.reg-page input {
+    position: relative;
+    z-index: 1;
+    padding: 2px 10px;
+    width: 100%;
+    color: black;
+}
+
+.reg-btn {
+    width: 100px;
+    height: 25px;
+    margin: 25px 0;
+    position: relative;
+    z-index: 1;
+    cursor: pointer;
+}
+
+/* logged in page general styling */
+.logged-in-page>*{
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    font-size: 1.25rem;
+}
+
+/*home page styling*/
+.home-page {
+    padding-top: 50px;
+    left: 7%;
+    visibility: hidden;
+}
+
+.home-page *:not(:last-child) {
+    margin-bottom: 10px;
+}
+
+.home-page h2,h3 {
+    font-weight: 300;
+}
+
+.balance-amount {
+    font-weight: 600;
+}
+
+.action-btns button {
+    width: 200px;
+    height: 75px;
+    font-size: 20px;
+    font-weight: 500;
+    position: relative;
+    z-index: 1;
+}
+
+.action-btns button:hover {
+    cursor: pointer;
+}
+
+.action-btns button:first-child {
+    margin: 30px auto;
+}
+
+/* deposit/withdraw page */
+.deposit-withdraw-page {
+    left: 1%;
+    top: 8%;
+    visibility: hidden;
+}
+
+.deposit-withdraw-page>*:not(:last-child) {
+    margin-bottom: 10px;
+}
+
+.deposit-withdraw-page h2 {
+    font-weight: 400;
+}
+
+.deposit-withdraw-page label {
+    font-size: 30px;
+}
+
+.deposit-withdraw-page select,button,input {
+    position: relative;
+    z-index: 1;
+}
+
+.deposit-withdraw-page select,button {
+    cursor: pointer;
+}
+
+.deposit-withdraw-page .dep-or-with {
+    margin-top: 5px;
+    width: 130px;
+    height: 40px;
+    font-size: 20px;
+}
+
+.amount-to-depwith, .amount-to-transfer {
+    width: 80%;
+    height: 40px;
+    text-align: center;
+    font-size: 20px;
+    margin-top: 5px;
+}
+
+.submit-depwith,.submit-transfer, .back-btn {
+    margin-top: 20px;
+    width: 100px;
+    height: 40px;
+    font-size: 20px;
+}
+
+/* transfer money */
+.send-money-page {
+    left: 2%;
+    top: 8%;
+    visibility: hidden;
+}
+
+.send-money-page>*:not(:last-child) {
+    margin-bottom: 10px;
+}
+
+.to_user_choice {
+    width: 80%;
+    height: 40px;
+}
+
+.send-money-page select,button,input {
+    position: relative;
+    z-index: 1;
+}
