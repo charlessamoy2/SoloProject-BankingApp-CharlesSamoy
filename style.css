@@ -32,8 +32,8 @@ footer{
     opacity: 20%;
     border-top: 1px solid grey;
     line-height: 3;
-    width: 60vw;
-    margin: 30px auto;
+    width: 50vw;
+    margin: 15px auto 0 auto;
 }
 
 .user-icon{
@@ -41,12 +41,16 @@ footer{
     height: 200px;
 }
 
+.whole-header h1 {
+    font-size: 2.5rem;
+}
+
 /* phone styling */
 #phone {
     width: 480px;
     margin: 0 auto;
     background-color: white;
-    height: 86vh;
+    height: 86%;
     border: 1px solid grey;
     border-radius: 10px;
     overflow: hidden;
@@ -68,10 +72,14 @@ nav a:not(:first-child) {
     margin-left: 10px;
 }
 
-nav>img {
+nav>a>img {
     width: 50px;
     height: auto;
     object-fit: cover;
+}
+
+nav>a>img:hover {
+    cursor: pointer;
 }
 
 .all-btns {
@@ -116,7 +124,7 @@ nav div a:hover {
 /* body styling */
 .body-phone {
     width: 100%;
-    height: 75vh;
+    height: 77vh;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
     overflow: hidden;
@@ -125,7 +133,7 @@ nav div a:hover {
 .body-phone>div {
     position: absolute;
     width: 478px;
-    height: 70vh;
+    height: 73vh;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
     padding: 15px 50px;
@@ -367,4 +375,58 @@ nav div a:hover {
 .send-money-page select,button,input {
     position: relative;
     z-index: 1;
+}
+
+/* Admin Page styling */
+.admin-page {
+    visibility: hidden;
+}
+
+.admin-page h1,h2 {
+    text-align: center;
+}
+
+.admin-page h1 {
+    margin-top: 10px;
+}
+
+.admin-page h2 {
+    font-weight: 400;
+    margin-bottom: 20px;
+}
+
+.admin-page table,th,td {
+    text-align: center;
+    border-collapse: collapse;
+}
+
+.admin-body table {
+    width: 100%;
+}
+
+.admin-body .table-warp {
+    height: 125px;
+    overflow-y: hidden;
+}
+
+.admin-body .table-warp:hover{
+    overflow-y: auto;
+}
+
+.admin-page th {
+    background-color:rgba(182, 233, 253, 0.795);
+    padding: 10px;
+    height: 10px;
+    width: auto;
+    font-size: 14px;
+}
+
+.admin-page td {
+    height: auto;
+    font-size: 12px;
+}
+
+.admin-page td:empty {
+    border-left: 0;
+    border-right: 0;
 }
